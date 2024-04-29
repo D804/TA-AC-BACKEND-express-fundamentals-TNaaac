@@ -1,6 +1,6 @@
 {
-  "name": "first-file",
-  "version": "2.0.1",
+  "name": "test project",
   "author": "Deepak",
-  "description": "This is a file about npm"
+  "version": "1.0.0",
+  "description": "This is a test project"
 }

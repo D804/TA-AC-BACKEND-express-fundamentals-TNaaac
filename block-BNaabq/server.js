@@ -1,17 +1,18 @@
 const express = require('express');
-const morgon = require('morgon');
+const logger = require('morgan');
 const cookiesParser = require('cookies-parser');
 let app = express();
 app.use(logger('dev'));
 app.use(cookieParser());
+
+app.use('/about', (req, res, next) => {
+  res.cookie('username', 'Deep');
+  res.send('welcome to my page');
+});
 app.use((req, res, next) => {
-  let cookies = res.cookie('username', 'Deep');
-  next();
+  req.cookies();
 });
-app.use((req, res) => {
-  let cookie = req.cookies;
-});
-app.get('/about', (req, res) => {
+app.get('/about', (req, res, next) => {
   res.send();
 });
 app.listen(3000, () => {

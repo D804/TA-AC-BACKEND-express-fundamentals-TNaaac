@@ -1,5 +1,5 @@
 const express = require('express');
-let app = require(express);
+let app = express();
 app.use('/admin', (req, res, next) => {
   next('Unauthorized');
 });
